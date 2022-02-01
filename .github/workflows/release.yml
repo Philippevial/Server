@@ -15,9 +15,10 @@ jobs:
     steps:
       - name: set lower case owner name
         run: |
-          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+          echo "ACTOR_LC=${ACTOR,,}" >>${GITHUB_ENV}
+          echo "DOCKER_IMAGE=ghcr.io/$ACTOR_LC/ossp_flaskapp" >>${GITHUB_ENV}
         env:
-          OWNER: '$OWNER_LC'
+            ACTOR: '${{ github.actor }}'
       - name: Check out the repo
         uses: actions/checkout@v2
 
