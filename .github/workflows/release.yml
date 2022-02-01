@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
         env:
-          OWNER: '${{ github.repository_owner }}'
+          OWNER: '${{ OWNER_LC }}'
       - name: Check out the repo
         uses: actions/checkout@v2
 
